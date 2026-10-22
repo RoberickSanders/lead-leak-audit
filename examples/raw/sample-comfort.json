@@ -1,0 +1,71 @@
+{
+  "url": "http://127.0.0.1:8765/",
+  "final_url": "http://127.0.0.1:8765/",
+  "title": "Sample Comfort HVAC (fictional)",
+  "mobile": {
+    "phone_screen": 3,
+    "click_to_call_screen": null,
+    "click_to_call": false,
+    "cta_or_form_screen": 3,
+    "first_cta_text": [
+      "Request service"
+    ],
+    "form_present": true,
+    "form_fields": 8,
+    "form_screen": 3,
+    "chat_widget": false,
+    "chat_signals": [],
+    "phone_in_header": false,
+    "load_s": 0.02,
+    "page_screens": 3.0
+  },
+  "desktop": {
+    "phone_screen": 3,
+    "click_to_call_screen": null,
+    "click_to_call": false,
+    "cta_or_form_screen": 3,
+    "first_cta_text": [
+      "Request service"
+    ],
+    "form_present": true,
+    "form_fields": 8,
+    "form_screen": 3,
+    "chat_widget": false,
+    "chat_signals": [],
+    "phone_in_header": false,
+    "load_s": 0.02,
+    "page_screens": 3.2
+  },
+  "score": 38,
+  "top_leaks": [
+    "On a phone, the number doesn't show up until screen 3. Most people leave before scrolling that far.",
+    "The phone number can't be tapped to call on mobile, so callers have to copy it by hand.",
+    "The first booking/quote button or form doesn't appear until screen 3."
+  ],
+  "screenshot": "screenshots/sample-comfort-mobile.png",
+  "raw_mobile": {
+    "vh": 844,
+    "pageHeight": 2496,
+    "telCount": 0,
+    "telTop": null,
+    "txtTop": 1843.8125,
+    "ctaTop": 2045.8125,
+    "ctaText": [
+      "Request service"
+    ],
+    "forms": [
+      {
+        "top": 1877.8125,
+        "fields": 8
+      }
+    ],
+    "chat": [],
+    "phoneInHeader": false,
+    "onlineSchedulerHint": [],
+    "iframes": [],
+    "title": "Sample Comfort HVAC (fictional)",
+    "domContentLoaded_s": 0.01,
+    "load_s": 0.02,
+    "finalUrl": "http://127.0.0.1:8765/"
+  }
+}

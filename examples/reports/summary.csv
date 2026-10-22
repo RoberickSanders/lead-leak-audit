@@ -1,0 +1,2 @@
+rank,company,trade,url,score,severity,phone_screen,tap_to_call_screen,cta_screen,form_fields,chat,phone_in_header,load_s,biggest_leak,report
+1,Sample Comfort HVAC,HVAC,http://127.0.0.1:8765/,38,62,3,,3,8,,False,0.02,"On a phone, the number doesn't show up until screen 3. Most people leave before scrolling that far.",reports/sample-comfort.md
