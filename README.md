@@ -61,5 +61,7 @@ python3 make_reports.py --dir examples --region Exampleville --date 2026-01-15
 ## Use responsibly
 Audit only public pages, respect robots and bot protection, and have a human review every opener before anything is sent.
 
+`audit.py` only accepts `http://` and `https://` URLs (no `file://` or other schemes). It drives a real browser, so do not expose it as a web service that takes URLs from untrusted users without also blocking private/internal addresses.
+
 ## License
 MIT

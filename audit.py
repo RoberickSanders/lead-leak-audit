@@ -101,7 +101,16 @@ def score(m, dk):
     leaks.sort(key=lambda x:-x[0])
     return max(0,s), [t for _,t in leaks[:3]]
 
+def check_url(url):
+    """Only public http(s) pages: blocks file://, javascript:, chrome:// etc."""
+    from urllib.parse import urlparse
+    u = urlparse(url)
+    if u.scheme not in ('http', 'https') or not u.netloc:
+        raise SystemExit(f'Refusing to audit {url!r}: only http:// or https:// URLs are allowed.')
+    return url
+
 def audit(url, name=None, out='.'):
+    url = check_url(url)
     name = name or re.sub(r'\W+','-',re.sub(r'^https?://(www\.)?','',url)).strip('-')[:50]
     os.makedirs(os.path.join(out,'screenshots'), exist_ok=True)
     shot=os.path.join(out,'screenshots',f'{name}-mobile.png')
