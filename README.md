@@ -2,6 +2,23 @@
 
 **A 60-second, read-only mobile audit that scores how many calls and bookings a local business's landing page is leaking, and turns it into a client-ready report plus a drafted (never sent) outreach opener.**
 
+## How it works
+
+```mermaid
+flowchart TD
+  A[Start with a public page address] --> B[Keep only ordinary http and https links]
+  B --> C[Open the page on a phone-sized screen, wait out a browser check without bypassing it, scroll so lazy content loads, measure the page, and save a full-page screenshot]
+  C --> D[Open the same page on a desktop screen and measure it, without taking a screenshot]
+  D --> E{Did the phone visit fail or did the site block the browser?}
+  E -->|Yes| F[Record that result and do not score the page]
+  E -->|No| G[Turn the phone measurements into which screen each item appears on]
+  G --> H[Start from 100, subtract points for each leak, and keep the three biggest]
+  H --> I[Print the score and the measurements so they can be saved with the screenshot]
+  I --> J[Match each saved result to a business on the list]
+  J --> K[Write one report per business and a summary ranked by how severe the leaks are]
+  K --> L[Draft an outreach note for a person to review before anyone is contacted]
+```
+
 ## The problem
 Local service businesses spend on ads, then send mobile visitors to pages where the phone number is three screens down, can't be tapped, and the quote form asks for eight fields. Owners don't see it because they browse on desktop. A GTM motion needs a concrete, specific reason to start the conversation, not "want more leads?".
 
@@ -16,18 +33,6 @@ Local service businesses spend on ads, then send mobile visitors to pages where 
 - **Scoring** – starts at 100 and subtracts weighted, plain-English "leaks"; keeps the top 3.
 - **`make_reports.py`** – one markdown report per business, a ranked `summary.csv` by severity, and a personalized **draft** opener citing the biggest leak.
 - **`METHOD.md`** – the companion market-teardown method (10 businesses → top 3 prospects with a sourced gap and pitch).
-
-## Architecture
-```mermaid
-flowchart LR
-  T[targets.tsv] --> A[audit.py<br/>Playwright mobile + desktop]
-  A -->|in-page JS measure| M[(raw/slug.json + screenshot)]
-  M --> S[score: 100 − weighted leaks]
-  S --> R[make_reports.py]
-  R --> MD[reports/slug.md]
-  R --> CSV[reports/summary.csv ranked by severity]
-  R --> O[Draft opener → human review]
-```
 
 ## Run it
 ```bash
